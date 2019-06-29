@@ -2,12 +2,14 @@ package com.sda.exercises;
 
 import java.util.List;
 
-public class QuickSort {
-    public List<Integer> sort(List<Integer> unsortedList,
+ class QuickSort {
+     List<Integer> sort(List<Integer> unsortedList,
                               Integer left,
                               Integer right) {
         if (left < right) {
-            partition(unsortedList, left, right);
+            Integer pivot = partition(unsortedList, left, right);
+            sort(unsortedList, left, pivot - 1);
+            sort(unsortedList, pivot + 1, right);
         }
         return unsortedList;
     }
@@ -19,7 +21,7 @@ public class QuickSort {
         int pivot = unsortedList.get(right);
         int i = left - 1;
         for (int j = left; j < right; j++) {
-            if (unsortedList.get(j) < -pivot) {
+            if (unsortedList.get(j) <=pivot) {
                 i++;
 //                swap
                 Integer temp = unsortedList.get(i);
