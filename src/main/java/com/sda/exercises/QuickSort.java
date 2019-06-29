@@ -12,6 +12,7 @@ public class QuickSort {
         return unsortedList;
     }
 
+
     private Integer partition(List<Integer> unsortedList,
                               int left,
                               int right) {
